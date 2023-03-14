@@ -1,6 +1,13 @@
 # Welcome to Card game (Server part)
 This document will give you all needed APIs for Angular part of this Card game.
 
+## Starting project
+
+```
+npm i
+mpn run start:dev
+```
+
 ## APIs
 ### Cards
 * *[Get]* **/api/cards** => Give all cards *(Return : CardModel[])*
