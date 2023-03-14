@@ -13,7 +13,7 @@ export class DecksService extends AbstractService<DeckModel> implements IDeckSer
         super(decksDal);
     }
 
-    async findById(id: string): Promise<DeckWithCardsModel> {
+    async findCompleteById(id: string): Promise<DeckWithCardsModel> {
         const deck: DeckModel = await this.decksDal.findById(id);
         const cards: CardModel[] = await this.cardsDal.findByIds(deck.cards);
         return {

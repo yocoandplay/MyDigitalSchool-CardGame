@@ -21,6 +21,19 @@ export class CardsController {
         }
     }
 
+    @httpGet('/:id')
+    public async getById(@request() req: Request, @response() res: Response): Promise<void> {
+        try {
+            const id: string = req.params.id;
+            console.log(`[GET] /api/Decks/${id}`);
+            const value: CardModel = await this.cardsService.findById(id);
+            res.status(200).send(value);
+        } catch (error: any) {
+            console.error('Error : ', error);
+            res.status(500).send({ message: error.message });
+        }
+    }
+
     @httpPut('')
     public async create(@request() req: Request, @response() res: Response): Promise<void> {
         try {

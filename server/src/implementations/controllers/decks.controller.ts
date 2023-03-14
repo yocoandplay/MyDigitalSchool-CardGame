@@ -27,7 +27,7 @@ export class DecksController {
         try {
             const id: string = req.params.id;
             console.log(`[GET] /api/Decks/${id}`);
-            const value: DeckWithCardsModel = await this.decksService.findById(id);
+            const value: DeckWithCardsModel = await this.decksService.findCompleteById(id);
             res.status(200).send(value);
         } catch (error: any) {
             console.error('Error : ', error);

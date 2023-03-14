@@ -11,6 +11,10 @@ export abstract class AbstractService<T extends BaseModel> implements IAbstractS
         return this.dal.findAll();
     }
 
+    findById(id: string): Promise<T> {
+        return this.dal.findById(id);
+    }
+
     create(item: Partial<T>): Promise<T> {
         return this.dal.create(item);
     }

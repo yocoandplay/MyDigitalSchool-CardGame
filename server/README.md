@@ -11,6 +11,7 @@ mpn run start:dev
 ## APIs
 ### Cards
 * *[Get]* **/api/cards** => Give all cards *(Return : CardModel[])*
+* *[Get]* **/api/cards/:id** => Give card from his id *(Return : CardModel[])*
 * *[Put]* **/api/cards** => Add a new card *(Body : Partial\<CardModel>)*
 * *[Patch]* **/api/cards** => Update an existing card *(Body : CardModel)*
 * *[Delete]* **/api/cards/${id}** => Remove a card from his id
