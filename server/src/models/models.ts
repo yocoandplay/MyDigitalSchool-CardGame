@@ -2,8 +2,10 @@ export interface BaseModel {
     id?: string | undefined;
 }
 
-export interface CardModel extends BaseModel {
+export interface CardBasicModel extends BaseModel {
     name: string;
+}
+export interface CardModel extends CardBasicModel {
     value: number;
 }
 

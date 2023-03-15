@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 import { inject } from 'inversify';
 import { controller, httpDelete, httpGet, httpPatch, httpPut, request, response } from 'inversify-express-utils';
-import { IAbstractService } from '../../interfaces/services/iabstract.service';
+import { ICardService } from '../../interfaces/services/icards.service';
 import SERVICES_TYPES from '../../interfaces/services/service.types';
-import { CardModel } from '../../models/models';
+import { CardBasicModel, CardModel } from '../../models/models';
 
 @controller('/api/cards')
 export class CardsController {
-    constructor(@inject(SERVICES_TYPES.CardsService) private readonly cardsService: IAbstractService<CardModel>) {}
+    constructor(@inject(SERVICES_TYPES.CardsService) private readonly cardsService: ICardService) {}
 
     @httpGet('')
     public async getAll(@request() req: Request, @response() res: Response): Promise<void> {
         try {
             console.log('[GET] /api/cards');
-            const values: CardModel[] = await this.cardsService.findAll();
+            const values: CardBasicModel[] = await this.cardsService.findAllBasic();
             res.status(200).send(values);
         } catch (error: any) {
             console.error('Error : ', error);
