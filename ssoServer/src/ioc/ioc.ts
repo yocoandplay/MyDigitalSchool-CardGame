@@ -1,8 +1,8 @@
-import { Container, injectable } from "inversify";
+import { Container, injectable } from 'inversify';
 
-import { IocDals } from "./ioc.dals";
-import { IocServices } from "./ioc.services";
-import { JwtCheckerMiddleware } from "../implementations/middlewares/jwt-checker.middleware";
+import { IocDals } from './ioc.dal';
+import { IocServices } from './ioc.service';
+import { JwtCheckerMiddleware } from '../implementations/middlewares/jwt-checker.middleware';
 
 @injectable()
 export class Ioc {

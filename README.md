@@ -24,6 +24,8 @@ Lorsqu'un joueur est connecté, il doit pouvoir :
 - Démarrer une partie contre l'ordinateur
 - Démarrer une partie contre un autre joueur (bonus)
 
+Lorsqu'une API retourne une erreur, le client doit afficher un message d'erreur à l'utilisateur
+
 #### Gestion des cartes
 Le joueur doit pouvoir :
 - Visualiser la liste des cartes à disposition
