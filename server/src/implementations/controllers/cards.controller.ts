@@ -1,9 +1,10 @@
+import { CardBasicModel, CardModel } from '../../models/models';
 import { Request, Response } from 'express';
-import { inject } from 'inversify';
-import { controller, httpDelete, httpGet, httpPatch, httpPut, request, response } from 'inversify-express-utils';
+import { controller, httpDelete, httpGet, httpPatch, httpPost, httpPut, request, response } from 'inversify-express-utils';
+
 import { ICardService } from '../../interfaces/services/icards.service';
 import SERVICES_TYPES from '../../interfaces/services/service.types';
-import { CardBasicModel, CardModel } from '../../models/models';
+import { inject } from 'inversify';
 
 @controller('/api/cards')
 export class CardsController {
@@ -47,7 +48,7 @@ export class CardsController {
         }
     }
 
-    @httpPatch('')
+    @httpPost('')
     public async update(@request() req: Request, @response() res: Response): Promise<void> {
         try {
             const card: CardModel = req.body;

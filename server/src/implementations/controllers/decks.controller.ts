@@ -1,10 +1,11 @@
+import { DeckModel, DeckWithCardsModel } from '../../models/models';
 import { Request, Response } from 'express';
-import { inject } from 'inversify';
-import { controller, httpDelete, httpGet, httpPatch, httpPut, request, response } from 'inversify-express-utils';
+import { controller, httpDelete, httpGet, httpPatch, httpPost, httpPut, request, response } from 'inversify-express-utils';
+
 import { IAbstractService } from '../../interfaces/services/iabstract.service';
 import { IDeckService } from '../../interfaces/services/idecks.service';
 import SERVICES_TYPES from '../../interfaces/services/service.types';
-import { DeckModel, DeckWithCardsModel } from '../../models/models';
+import { inject } from 'inversify';
 
 @controller('/api/decks')
 export class DecksController {
@@ -48,7 +49,7 @@ export class DecksController {
         }
     }
 
-    @httpPatch('')
+    @httpPost('')
     public async update(@request() req: Request, @response() res: Response): Promise<void> {
         try {
             const deck: DeckModel = req.body;
