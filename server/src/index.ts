@@ -15,7 +15,11 @@ class Main {
 
         const server: InversifyExpressServer = new InversifyExpressServer(container);
         server.setConfig((app: Application) => {
-            app.use(cors());
+            const corsOptions = {
+                "origin": "*",
+                "methods": "GET,HEAD,PUT,PATCH,POST,DELETE"
+              }
+            app.use(cors(corsOptions));
             app.use(bodyParser.json());
             app.use(bodyParser.urlencoded({ extended: false, limit: '100kb' }));
         })
