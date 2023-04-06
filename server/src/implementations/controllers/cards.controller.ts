@@ -5,8 +5,9 @@ import { controller, httpDelete, httpGet, httpPatch, httpPost, httpPut, request,
 import { ICardService } from '../../interfaces/services/icards.service';
 import SERVICES_TYPES from '../../interfaces/services/service.types';
 import { inject } from 'inversify';
+import { JwtCheckerMiddleware } from '../middlewares/jwt-checker.middleware';
 
-@controller('/api/cards')
+@controller('/api/cards', JwtCheckerMiddleware)
 export class CardsController {
     constructor(@inject(SERVICES_TYPES.CardsService) private readonly cardsService: ICardService) {}
 

@@ -6,8 +6,9 @@ import { IAbstractService } from '../../interfaces/services/iabstract.service';
 import { IDeckService } from '../../interfaces/services/idecks.service';
 import SERVICES_TYPES from '../../interfaces/services/service.types';
 import { inject } from 'inversify';
+import { JwtCheckerMiddleware } from '../middlewares/jwt-checker.middleware';
 
-@controller('/api/decks')
+@controller('/api/decks', JwtCheckerMiddleware)
 export class DecksController {
     constructor(@inject(SERVICES_TYPES.DecksService) private readonly decksService: IDeckService) {}
 
